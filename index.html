@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="My Web Design by HTML TailwindCSS — ผลงานออกแบบเว็บไซต์ โดย NinniN SAU"
+    />
+    <title>My Web Design Portfolio</title>
+
+    <!-- favicon แบบ inline กัน 404 -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%239df0ba'/></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (Play CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              mint: "#9df0ba" /* พื้นหลังเขียวมิ้นต์ตามแบบ */,
+              ink: "#1a1a1a",
+              heading: "#1f1f1f",
+              bodytext: "#2a2a2a",
+              btn: "#333333",
+              btnhover: "#111111",
+            },
+            fontFamily: {
+              mono: ['"Roboto Mono"', "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="flex min-h-screen flex-col bg-mint p-8 font-mono text-ink md:p-16 lg:p-24"
+  >
+    <main
+      class="flex flex-1 flex-col gap-14 lg:flex-row lg:items-start lg:gap-[5%]"
+    >
+      <!-- ================= คอลัมน์ซ้าย ================= -->
+      <div class="flex w-full flex-col lg:w-[57%]">
+        <!-- ขนาดตัวอักษรคิดจากสัดส่วนในแบบ (จอ 1440px) = 56.7px
+             ใช้ค่า arbitrary คู่กับ leading- แยก เพราะ text-[...] ของ Tailwind
+             ตั้งแค่ font-size ไม่ไปทับ line-height ที่เรากำหนดเอง -->
+        <h1
+          class="text-[clamp(2.1rem,3.94vw,3.6rem)] font-bold leading-[1.15] text-heading"
+        >
+          My Web Design by<br />
+          HTML TailwindCSS
+        </h1>
+
+        <!-- = 24.6px ที่จอ 1440 -->
+        <p
+          class="mt-6 text-[clamp(1.05rem,1.71vw,1.55rem)] leading-[1.65] text-bodytext"
+        >
+          Lorem ipsum dolor sit amet,<br />
+          consectetur adipiscing elit.<br />
+          Cursus imperdiet sed id elementum.<br />
+          Quam vel aliquam sit vulputate.
+        </p>
+
+        <div class="mt-7">
+          <a
+            href="#"
+            class="inline-block rounded-full bg-btn px-14 py-4 text-lg font-medium text-white transition-colors hover:bg-btnhover md:px-16 md:py-5"
+          >
+            Follow Me
+          </a>
+        </div>
+
+        <!-- รูปแนวนอน 2 ใบ (page_a ซ้าย / page_b ขวา) -->
+        <div class="mt-16 flex flex-col gap-8 sm:flex-row sm:gap-11 md:mt-24">
+          <a href="page_a.html" class="block sm:w-1/2">
+            <img
+              src="image/web1.jpg"
+              alt="ผลงานหน้า Portfolio ธีมดำ โลโก้ hello"
+              class="h-auto w-full"
+            />
+          </a>
+          <a href="page_b.html" class="block sm:w-1/2">
+            <img
+              src="image/web2.jpg"
+              alt="ผลงานหน้า Portfolio ธีมดำ ปุ่มเขียว"
+              class="h-auto w-full"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= คอลัมน์ขวา ================= -->
+      <!-- ความกว้างสองใบปรับให้สมดุลกับสัดส่วนความสูงของภาพ (4682 vs 5836)
+           เพื่อให้ทั้งคู่สูงเท่ากันพอดีโดยไม่ต้อง crop (48.83% และ 39.17%) -->
+      <div class="flex w-full items-start gap-[12%] lg:w-[38%]">
+        <a href="page_c.html" class="block w-[48.83%]">
+          <img
+            src="image/web3.png"
+            alt="ผลงานหน้าเว็บ Portfolio ธีมน้ำเงิน"
+            class="h-auto w-full"
+          />
+        </a>
+        <a href="page_d.html" class="block w-[39.17%]">
+          <img
+            src="image/web4.png"
+            alt="ผลงานหน้าเว็บร้านอาหาร"
+            class="h-auto w-full"
+          />
+        </a>
+      </div>
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer
+      class="mt-20 text-center text-base leading-relaxed text-bodytext md:text-lg"
+    >
+      <span lang="th">(รูปและเนื้อหาทั้งหมดใช้เพื่อการศึกษาเท่านั้น)</span
+      ><br />
+      Created by Boonwarut SAU<br />
+      Copyright &copy; 2026 SOS SOS SOS
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parinya Chaekkathok  Portfolio</title>
+
+    <!-- ฟอนต์: IBM Plex Mono (ทั้งหน้า) + Raleway (ชื่อหัวข้อใหญ่) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Raleway:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ไอคอนโซเชียล -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Tailwind CSS (Play CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            /* lg ถูกตั้งเป็น 1025px เพื่อให้ตรงกับ @media (max-width:1024px) ของโค้ดเดิมพอดี */
+            screens: {
+              lg: "1025px",
+            },
+            colors: {
+              ink: "#0d0d0d" /* พื้นหลังหลัก */,
+              nav: "#1c1c1c" /* แถบเมนู */,
+              muted: "#888888" /* ตัวหนังสือสีจาง */,
+              line: "#222222" /* เส้นขอบ */,
+              card: "#111111" /* พื้นกล่องโลโก้ */,
+              btn: "#3b8811" /* พื้นปุ่มเขียว */,
+              "btn-edge": "#5db622" /* ขอบปุ่มเขียว */,
+            },
+            fontFamily: {
+              mono: ['"IBM Plex Mono"', "monospace"],
+              display: ["Raleway", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="flex min-h-screen flex-col bg-ink font-mono text-white">
+    <!-- ===================== Navigation ===================== -->
+    <nav
+      class="mx-4 flex items-center justify-center rounded-b-lg bg-nav px-8 py-6 sm:mx-[6.5%]"
+    >
+      <div class="flex flex-col items-center gap-6 lg:flex-row lg:gap-24">
+        <ul
+          class="m-0 flex list-none flex-wrap justify-center gap-6 p-0 md:gap-[68px]"
+        >
+          <li>
+            <a
+              href="#"
+              class="relative inline-block py-1 text-[0.85rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-white focus-visible:-translate-y-0.5 focus-visible:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[2px] after:w-0 after:rounded-full after:bg-btn-edge after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_10px_rgba(93,182,34,0.7)] focus-visible:after:w-full"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="relative inline-block py-1 text-[0.85rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-white focus-visible:-translate-y-0.5 focus-visible:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[2px] after:w-0 after:rounded-full after:bg-btn-edge after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_10px_rgba(93,182,34,0.7)] focus-visible:after:w-full"
+              >Case Studies</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="relative inline-block py-1 text-[0.85rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-white focus-visible:-translate-y-0.5 focus-visible:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[2px] after:w-0 after:rounded-full after:bg-btn-edge after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_10px_rgba(93,182,34,0.7)] focus-visible:after:w-full"
+              >Testimonials</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="relative inline-block py-1 text-[0.85rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-white focus-visible:-translate-y-0.5 focus-visible:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[2px] after:w-0 after:rounded-full after:bg-btn-edge after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_10px_rgba(93,182,34,0.7)] focus-visible:after:w-full"
+              >Recent work</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="relative inline-block py-1 text-[0.85rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-white focus-visible:-translate-y-0.5 focus-visible:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[2px] after:w-0 after:rounded-full after:bg-btn-edge after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_10px_rgba(93,182,34,0.7)] focus-visible:after:w-full"
+              >Get In Touch</a
+            >
+          </li>
+        </ul>
+
+        <div class="flex gap-[1.2rem]">
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            class="inline-block text-[1.1rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-110 hover:text-btn-edge focus-visible:-translate-y-0.5 focus-visible:scale-110 focus-visible:text-btn-edge"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="#"
+            aria-label="Behance"
+            class="inline-block text-[1.1rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-110 hover:text-btn-edge focus-visible:-translate-y-0.5 focus-visible:scale-110 focus-visible:text-btn-edge"
+          >
+            <i class="fab fa-behance"></i>
+          </a>
+          <a
+            href="#"
+            aria-label="Twitter"
+            class="inline-block text-[1.1rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-110 hover:text-btn-edge focus-visible:-translate-y-0.5 focus-visible:scale-110 focus-visible:text-btn-edge"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===================== Hero ===================== -->
+    <main
+      class="flex flex-1 flex-col-reverse items-center justify-center gap-16 px-8 sm:px-[14%] py-20 text-center lg:flex-row lg:gap-12 lg:text-left xl:gap-24"
+    >
+      <div
+        class="flex max-w-[550px] flex-1 flex-col items-center lg:items-start"
+      >
+        <h1
+          class="m-0 mb-6 font-display font-bold text-[3rem] leading-[1.1] tracking-[-1px] lg:whitespace-nowrap lg:text-[3.2rem]"
+        >
+          Parinya Chaekkathok
+        </h1>
+
+        <p class="mb-12 max-w-[480px] text-[0.9rem] leading-[1.8] text-muted">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt rem
+          odit labore unde nemo omnis sequi hic sit laudantium repellendus
+          recusandae vitae ea laborum, ipsa nisi eos autem.
+        </p>
+
+        <button
+          type="button"
+          class="inline-block cursor-pointer rounded-md border-2 border-btn-edge bg-btn px-14 py-[1.2rem] text-center font-mono text-[1.15rem] font-medium text-white shadow-[0_0_35px_rgba(93,182,34,0.25)] transition duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_0_45px_rgba(93,182,34,0.45)] focus-visible:-translate-y-0.5 focus-visible:brightness-110 focus-visible:shadow-[0_0_45px_rgba(93,182,34,0.45)]"
+        >
+          Let's get started &gt;
+        </button>
+      </div>
+
+      <div class="flex flex-1 justify-center lg:justify-end">
+        <img
+          src="image/C1.jpg"
+          alt="Sombat Jaideemak"
+          class="aspect-square w-[350px] max-w-full rounded-full object-cover"
+        />
+      </div>
+    </main>
+
+    <!-- ===================== Worked with ===================== -->
+    <section class="px-8 sm:px-[14%] pb-16">
+      <h3 class="mb-8 text-[0.9rem] font-normal">Worked with</h3>
+
+      <!-- ตัวไฟล์ PNG มีกรอบกล่องวาดมาในรูปอยู่แล้ว จึงไม่ต้องครอบ div กล่องซ้อนอีกชั้น -->
+      <div
+        class="grid grid-cols-2 items-center gap-7 sm:grid-cols-3 lg:grid-cols-5"
+      >
+        <img
+          src="image/Logo%201.png"
+          alt="ClickUp"
+          class="h-auto w-full opacity-60 brightness-150 grayscale transition duration-300 hover:opacity-100 hover:brightness-100 hover:grayscale-0"
+        />
+        <img
+          src="image/Logo%202.png"
+          alt="Dropbox"
+          class="h-auto w-full opacity-60 brightness-150 grayscale transition duration-300 hover:opacity-100 hover:brightness-100 hover:grayscale-0"
+        />
+        <img
+          src="image/Logo%203.png"
+          alt="Paychex"
+          class="h-auto w-full opacity-60 brightness-150 grayscale transition duration-300 hover:opacity-100 hover:brightness-100 hover:grayscale-0"
+        />
+        <img
+          src="image/Logo%204.png"
+          alt="Elastic"
+          class="h-auto w-full opacity-60 brightness-150 grayscale transition duration-300 hover:opacity-100 hover:brightness-100 hover:grayscale-0"
+        />
+        <img
+          src="image/Logo%205.png"
+          alt="Stripe"
+          class="h-auto w-full opacity-60 brightness-150 grayscale transition duration-300 hover:opacity-100 hover:brightness-100 hover:grayscale-0"
+        />
+      </div>
+    </section>
+  </body>
+</html>

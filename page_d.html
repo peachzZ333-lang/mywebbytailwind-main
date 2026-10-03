@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Savora — ครัวนานาชาติ รวมจานเด่นจากไทย ญี่ปุ่น อิตาลี เกาหลี และตะวันตก"
+    />
+    <title>Savora — อาหารเหนือ ชวนชิม </title>
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%23933c24'/></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Sansita Swashed = หัวข้อตัวมีหาง, Inter = เนื้อหา
+         หมายเหตุ: ทั้งสองฟอนต์ไม่มีชุดอักษรไทย ข้อความไทยจะตกไปใช้ฟอนต์ของระบบ -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sansita+Swashed:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Tailwind CSS (Play CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          /* ตั้ง breakpoint ให้ตรงกับ @media ของโค้ดเดิมพอดี
+             sm = 761px (กลับด้านจาก max-width:760px)
+             md = 1001px (กลับด้านจาก max-width:1000px) */
+          screens: {
+            sm: "761px",
+            md: "1001px",
+          },
+          extend: {
+            colors: {
+              ink: "#141414" /* พื้นส่วนมืด */,
+              card: "#1a1a1a" /* พื้นการ์ดเมนู */,
+              footerbg: "#101010",
+              brick: "#933c24" /* ปุ่มสีอิฐ */,
+              brickdark: "#7a3019",
+              gold: "#c29f78" /* สีทองใน footer */,
+              goldlight: "#e6cda6" /* ทองอ่อน ใช้บนรูปสว่าง */,
+              cream: "#f3e3c7" /* ครีม ใช้บนจอมือถือ */,
+              textdark: "#1c1c1c",
+              muteddark: "#6f6f6f" /* ตัวหนังสือรองบนพื้นขาว */,
+              promobg: "#f1ece6" /* พื้นแบนเนอร์โปรโมชัน */,
+              promotext: "#5d5148",
+            },
+            fontFamily: {
+              body: ["Inter", "sans-serif"],
+              script: ['"Sansita Swashed"', "cursive"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="bg-white font-body font-light leading-[1.8] text-textdark antialiased"
+  >
+    <!-- ===================== Hero ===================== -->
+    <header
+      class="relative flex min-h-screen flex-col overflow-hidden bg-[#100d0c] text-white"
+    >
+      <!-- รูปพื้นหลัง r1 -->
+      <div
+        class="pointer-events-none absolute inset-0 bg-[url('image/r1.png')] bg-cover bg-center"
+      ></div>
+      <!-- ชั้นมืดด้านบน ให้แถบเมนูอ่านออก -->
+      <div
+        class="pointer-events-none absolute inset-x-0 top-0 h-60 bg-gradient-to-b from-black/70 via-black/25 to-transparent"
+      ></div>
+      <!-- ชั้นมืดคลุมคอลัมน์ข้อความ แล้วจางไปทางขวาให้เห็นชามต้มยำ
+           จอเล็กใช้มืดเท่ากันทั้งภาพ เพราะข้อความกินเกือบเต็มความกว้าง -->
+      <div
+        class="pointer-events-none absolute inset-0 bg-black/55 sm:bg-gradient-to-r sm:from-black/70 sm:via-black/35 sm:to-black/5"
+      ></div>
+
+      <!-- แถบเมนู -->
+      <div
+        class="relative z-10 mx-auto flex w-full max-w-[1310px] flex-wrap items-center justify-center gap-6 px-6 pt-[30px] text-center sm:justify-between sm:text-left"
+      >
+        <a
+          href="#"
+          class="whitespace-nowrap font-script text-2xl font-bold text-gold transition-colors duration-300 hover:text-goldlight focus-visible:text-goldlight"
+          >Parinya</a
+        >
+        <nav class="flex flex-wrap justify-center gap-[22px] sm:gap-[34px]">
+          <a
+            href="#"
+            class="relative inline-block py-1 text-[0.9rem] text-goldlight after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-px after:rounded-full after:bg-goldlight after:w-full"
+            >หน้าแรก</a
+          >
+          <a
+            href="#menu"
+            class="relative inline-block py-1 text-[0.9rem] text-white/95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-goldlight focus-visible:-translate-y-0.5 focus-visible:text-goldlight after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-px after:rounded-full after:bg-goldlight after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_8px_rgba(230,205,166,0.8)] focus-visible:after:w-full"
+            >เมนู</a
+          >
+          <a
+            href="#explore"
+            class="relative inline-block py-1 text-[0.9rem] text-white/95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-goldlight focus-visible:-translate-y-0.5 focus-visible:text-goldlight after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-px after:rounded-full after:bg-goldlight after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_8px_rgba(230,205,166,0.8)] focus-visible:after:w-full"
+            >หมวดอาหาร</a
+          >
+          <a
+            href="#about"
+            class="relative inline-block py-1 text-[0.9rem] text-white/95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-goldlight focus-visible:-translate-y-0.5 focus-visible:text-goldlight after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-px after:rounded-full after:bg-goldlight after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_8px_rgba(230,205,166,0.8)] focus-visible:after:w-full"
+            >เกี่ยวกับเรา</a
+          >
+          <a
+            href="#contact"
+            class="relative inline-block py-1 text-[0.9rem] text-white/95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-goldlight focus-visible:-translate-y-0.5 focus-visible:text-goldlight after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-px after:rounded-full after:bg-goldlight after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_8px_rgba(230,205,166,0.8)] focus-visible:after:w-full"
+            >ติดต่อ</a
+          >
+        </nav>
+      </div>
+
+      <!-- เนื้อหา hero -->
+      <div
+        class="relative z-10 mx-auto flex w-full max-w-[1310px] flex-1 flex-col justify-center px-6 py-20"
+      >
+        <p
+          class="m-0 mb-[18px] min-w-0 max-w-full text-[0.85rem] uppercase tracking-[3px] text-cream sm:text-goldlight"
+        >
+          ครัวป้าติ๋ม ·เปิดเฉพาะวันจันทร์
+        </p>
+        <h1
+          class="m-0 min-w-0 max-w-[13em] break-words font-script text-[clamp(1.9rem,5.2vw,4.7rem)] font-black leading-[1.15]"
+        >
+          อาหารเหนือ<br />ชวนชิม
+        </h1>
+        <p
+          class="mt-6 min-w-0 max-w-[34em] break-words text-base text-white/[0.88]"
+        >
+          ครัวป้าติ๋มเป็นร้านอาหารเหนือที่มีชื่อเสียงในจังหวัดเชียงใหม่ เราเสิร์ฟอาหารเหนือแท้ ๆ ที่ปรุงด้วยวัตถุดิบสดใหม่และสูตรดั้งเดิมของครอบครัว ให้คุณได้สัมผัสรสชาติที่แท้จริงของอาหารเหนือในบรรยากาศอบอุ่นและเป็นกันเอง
+        </p>
+        <div
+          class="mt-[42px] flex min-w-0 max-w-full flex-wrap items-center gap-7"
+        >
+          <a
+            class="inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-[3px] bg-brick px-[34px] py-[14px] font-body text-[0.9rem] font-medium text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brickdark focus-visible:-translate-y-0.5 focus-visible:bg-brickdark"
+            href="#menu"
+            >ดูเมนูทั้งหมด</a
+          >
+          <a
+            class="border-b border-transparent text-[0.9rem] text-white/[0.88] transition-colors duration-200 hover:border-white hover:text-white focus-visible:border-white focus-visible:text-white"
+            href="#contact"
+            >จองโต๊ะล่วงหน้า</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===================== เมนูแนะนำ ===================== -->
+      <section class="py-12 sm:py-[68px]" id="menu">
+        <div class="mx-auto w-full max-w-[1310px] px-6">
+          <h2
+            class="m-0 mb-[34px] break-words text-center font-script text-[clamp(2rem,3.3vw,3rem)] font-black leading-[1.15]"
+          >
+            เมนูแนะนำ
+          </h2>
+
+          <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-3">
+            <!-- การ์ดที่ 1 -->
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r1.jpg"
+                loading="lazy"
+                alt="ต้มยำกุ้งน้ำข้นในหม้อดินร้อน"
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div
+                  class="flex items-center justify-between gap-3 border-b border-white/[0.14] pb-3.5 text-[0.85rem] text-white/60"
+                >
+                  <span>แนะนำ</span>
+                  <i class="bi bi-heart text-[1.1rem]"></i>
+                </div>
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    ข้าวซอย
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >299 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- การ์ดที่ 2 -->
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r2.png"
+                loading="lazy"
+                alt="image/r2.png"
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div
+                  class="flex items-center justify-between gap-3 border-b border-white/[0.14] pb-3.5 text-[0.85rem] text-white/60"
+                >
+                  <span>แนะนำ</span>
+                  <i class="bi bi-heart text-[1.1rem]"></i>
+                </div>
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    ขนมจีนน้ำเงี้ยว
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >399 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- การ์ดที่ 3 -->
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r3.png"
+                loading="lazy"
+                alt="พาสต้าครีมเห็ดทรัฟเฟิล"
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div
+                  class="flex items-center justify-between gap-3 border-b border-white/[0.14] pb-3.5 text-[0.85rem] text-white/60"
+                >
+                  <span>แนะนำ</span>
+                  <i class="bi bi-heart text-[1.1rem]"></i>
+                </div>
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    น้ำพริกหนุ่มและแคบหมู
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >99 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- การ์ดที่ 4 -->
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r4.png"
+                loading="lazy"
+                alt=""
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div
+                  class="flex items-center justify-between gap-3 border-b border-white/[0.14] pb-3.5 text-[0.85rem] text-white/60"
+                >
+                  <span>แนะนำ</span>
+                  <i class="bi bi-heart text-[1.1rem]"></i>
+                </div>
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    ไส้อั่ว
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >90 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- การ์ดที่ 5 -->
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r5.png"
+                loading="lazy"
+                alt="กระบอง"
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div
+                  class="flex items-center justify-between gap-3 border-b border-white/[0.14] pb-3.5 text-[0.85rem] text-white/60"
+                >
+                  <span>แนะนำ</span>
+                  <i class="bi bi-heart text-[1.1rem]"></i>
+                </div>
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    กระบอง
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >99 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- การ์ดที่ 6 -->
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r6.png"
+                loading="lazy"
+                alt="แกงฮังเล"
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div
+                  class="flex items-center justify-between gap-3 border-b border-white/[0.14] pb-3.5 text-[0.85rem] text-white/60"
+                >
+                  <span>แนะนำ</span>
+                  <i class="bi bi-heart text-[1.1rem]"></i>
+                </div>
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    แกงฮังเล
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >299 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== แบนเนอร์โปรโมชัน ===================== -->
+      <section
+        class="relative grid grid-cols-1 items-stretch overflow-hidden bg-promobg sm:grid-cols-[1fr_minmax(0,520px)] md:grid-cols-[1fr_minmax(0,520px)_1fr]"
+      >
+        <img
+          class="h-full min-h-[220px] w-full object-cover sm:min-h-[340px]"
+          src="image/r8.png"
+          loading="lazy"
+          alt="อร่อยแนะนำ"
+        />
+
+        <div
+          class="flex flex-col items-center justify-center px-7 py-[46px] text-center"
+        >
+          <h2
+            class="m-0 break-words font-script text-[clamp(1.7rem,2.8vw,2.5rem)] font-black leading-[1.15] text-brick"
+          >
+            ลด 25%<br />สำหรับออเดอร์แรก
+          </h2>
+          <p
+            class="mb-7 mt-[18px] max-w-[30em] break-words text-[0.95rem] text-promotext"
+          >
+            สมัครสมาชิกวันนี้ รับส่วนลดทันทีสำหรับการสั่งครั้งแรก
+            พร้อมสิทธิ์รับเมนูของหวานฟรีเมื่อทานที่ร้าน
+          </p>
+          <a
+            class="inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-[3px] bg-brick px-[34px] py-[14px] font-body text-[0.9rem] font-medium text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brickdark focus-visible:-translate-y-0.5 focus-visible:bg-brickdark"
+            href="#contact"
+            >ดูรายละเอียด</a
+          >
+        </div>
+
+        <!-- จอต่ำกว่า 1001px ซ่อนรูปฝั่งขวา เหลือรูปเดียวขนาบ -->
+        <img
+          class="hidden h-full min-h-[340px] w-full object-cover md:block"
+          src="image/r2.png"
+          loading="lazy"
+          alt="อร่อยแนะนำ "
+        />
+      </section>
+
+      <!-- ===================== สำรวจเมนู ===================== -->
+      <section class="py-12 sm:py-[68px]" id="explore">
+        <div class="mx-auto w-full max-w-[1310px] px-6">
+          <h2
+            class="m-0 mb-[34px] break-words text-center font-script text-[clamp(2rem,3.3vw,3rem)] font-black leading-[1.15]"
+          >
+            สำรวจเมนู
+          </h2>
+
+          <div
+            class="mb-[46px] flex flex-wrap justify-center gap-[38px] border-b border-black/10 pb-4"
+          >
+            <button
+              class="-mb-[17px] cursor-pointer border-b-2 border-brick bg-transparent pb-2.5 font-body text-[0.95rem] font-medium text-brick transition-colors duration-200"
+              type="button"
+            >
+              ทั้งหมด
+            </button>
+            <button
+              class="-mb-[17px] cursor-pointer border-b-2 border-transparent bg-transparent pb-2.5 font-body text-[0.95rem] font-light text-muteddark transition-colors duration-200 hover:text-textdark focus-visible:text-textdark"
+              type="button"
+            >
+              จานหลัก
+            </button>
+            <button
+              class="-mb-[17px] cursor-pointer border-b-2 border-transparent bg-transparent pb-2.5 font-body text-[0.95rem] font-light text-muteddark transition-colors duration-200 hover:text-textdark focus-visible:text-textdark"
+              type="button"
+            >
+              นำเสนอ
+            </button>
+            <button
+              class="-mb-[17px] cursor-pointer border-b-2 border-transparent bg-transparent pb-2.5 font-body text-[0.95rem] font-light text-muteddark transition-colors duration-200 hover:text-textdark focus-visible:text-textdark"
+              type="button"
+            >
+              นำเสนอ
+            </button>
+            <button
+              class="-mb-[17px] cursor-pointer border-b-2 border-transparent bg-transparent pb-2.5 font-body text-[0.95rem] font-light text-muteddark transition-colors duration-200 hover:text-textdark focus-visible:text-textdark"
+              type="button"
+            >
+              นำเสนอ
+            </button>
+            <button
+              class="-mb-[17px] cursor-pointer border-b-2 border-transparent bg-transparent pb-2.5 font-body text-[0.95rem] font-light text-muteddark transition-colors duration-200 hover:text-textdark focus-visible:text-textdark"
+              type="button"
+            >
+              นำเสนอ
+            </button>
+          </div>
+
+          <div
+            class="grid grid-cols-1 gap-[22px] sm:grid-cols-2 md:grid-cols-3"
+          >
+            <img
+              class="aspect-[4/3] w-full object-cover"
+              src="image/r9.png"
+              loading="lazy"
+              alt="อร่อยแนะนำ"
+            />
+            <img
+              class="aspect-[4/3] w-full object-cover"
+              src="image/r2.png"
+              loading="lazy"
+              alt="อร่อยแนะนำ"
+            />
+            <img
+              class="aspect-[4/3] w-full object-cover"
+              src="image/r7.png"
+              loading="lazy"
+              alt="อร่อยแนะนำ"
+            />
+            <img
+              class="aspect-[4/3] w-full object-cover"
+              src="image/r3.png"
+              loading="lazy"
+              alt="อร่อยแนะนำ"
+            />
+            <img
+              class="aspect-[4/3] w-full object-cover"
+              src="image/r8.png"
+              loading="lazy"
+              alt="อร่อยแนะนำ"
+            />
+            <img
+              class="aspect-[4/3] w-full object-cover"
+              src="image/r4.png"
+              loading="lazy"
+              alt="อร่อยแนะนำ"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== เกี่ยวกับร้าน ===================== -->
+      <section
+        class="grid grid-cols-1 items-stretch overflow-hidden bg-ink text-white sm:grid-cols-[1fr_minmax(0,560px)] md:grid-cols-[1fr_minmax(0,560px)_1fr]"
+        id="about"
+      >
+        <img
+          class="h-full min-h-[220px] w-full object-cover sm:min-h-[380px]"
+          src="image/r9.png"
+          loading="lazy"
+          alt="แนะนำอาหาร"
+        />
+
+        <div
+          class="flex flex-col items-center justify-center px-7 py-14 text-center"
+        >
+          <h2
+            class="m-0 break-words font-script text-[clamp(1.7rem,2.8vw,2.5rem)] font-black leading-[1.15]"
+          >
+            เรื่องราวของเรา
+          </h2>
+          <p
+            class="mb-[30px] mt-5 max-w-[32em] break-words text-[0.95rem] text-white/60"
+          >
+            พีชเริ่มจากความคิดง่าย ๆ ว่าอาหารดี ๆ ชอบบรรยากาศภาคเหนือ และชื่นชอบอาหารเหนือแท้ ๆ จึงเกิดเป็นร้านอาหารเหนือที่มีชื่อเสียงในจังหวัดเชียงใหม่ เราเสิร์ฟอาหารเหนือแท้ ๆ ที่ปรุงด้วยวัตถุดิบสดใหม่และสูตรดั้งเดิมของครอบครัว ให้คุณได้สัมผัสรสชาติที่แท้จริงของอาหารเหนือในบรรยากาศอบอุ่นและเป็นกันเอง
+          </p>
+          <a
+            class="inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-[3px] bg-brick px-[34px] py-[14px] font-body text-[0.9rem] font-medium text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brickdark focus-visible:-translate-y-0.5 focus-visible:bg-brickdark"
+            href="#"
+            >อ่านเพิ่มเติม</a
+          >
+        </div>
+
+        <img
+          class="hidden h-full min-h-[380px] w-full object-cover md:block"
+          src="image/r6.png"
+          loading="lazy"
+          alt="แนะนำอาหาร"
+        />
+      </section>
+
+      <!-- ===================== จานเด่นประจำร้าน ===================== -->
+      <section class="py-12 sm:py-[68px]">
+        <div class="mx-auto w-full max-w-[1310px] px-6">
+          <h2
+            class="m-0 mb-[34px] break-words text-center font-script text-[clamp(2rem,3.3vw,3rem)] font-black leading-[1.15]"
+          >
+            จานเด่นประจำร้าน
+          </h2>
+
+          <div
+            class="grid grid-cols-1 gap-[22px] sm:grid-cols-2 md:grid-cols-3"
+          >
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r8.png"
+                loading="lazy"
+                alt="อร่อยแนะนำ"
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    ข้าวซอยไก่
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >299 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r9.png"
+                loading="lazy"
+                alt="อร่อยแนะนำ"
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    ข้าวซอยเนื้อ
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >590 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="flex flex-col overflow-hidden bg-card text-white">
+              <img
+                class="aspect-[4/3] w-full object-cover"
+                src="image/r2.png"
+                loading="lazy"
+                alt="อร่อยแนะนำ"
+              />
+              <div class="px-[22px] pb-6 pt-5">
+                <div class="mt-4 flex items-end justify-between gap-3.5">
+                  <h3
+                    class="m-0 break-words text-base font-normal leading-[1.5]"
+                  >
+                    ข้าวซอยหมู
+                    <span class="block text-[0.85rem] font-medium text-gold"
+                      >380 บาท</span
+                    >
+                  </h3>
+                  <button
+                    class="cursor-pointer whitespace-nowrap rounded-[3px] bg-brick px-4 py-2 font-body text-[0.75rem] font-medium tracking-[1px] text-white transition-colors duration-200 hover:bg-brickdark focus-visible:bg-brickdark"
+                    type="button"
+                  >
+                    สั่ง
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== Footer ===================== -->
+    <footer
+      class="bg-footerbg pb-7 pt-[52px] text-[0.9rem] text-white/60"
+      id="contact"
+    >
+      <div class="mx-auto w-full max-w-[1310px] px-6">
+        <div
+          class="flex flex-wrap items-center justify-between gap-6 border-b border-gold/30 pb-[30px]"
+        >
+          <span
+            class="whitespace-nowrap font-script text-2xl font-bold text-gold"
+            >Parinya</span
+          >
+          <div class="flex items-center gap-5">
+            <span class="text-[0.85rem]">ติดตามเรา</span>
+            <a
+              href="#"
+              aria-label="Facebook"
+              class="inline-block text-[1.15rem] text-gold transition-transform duration-200 hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a
+              href="#"
+              aria-label="Instagram"
+              class="inline-block text-[1.15rem] text-gold transition-transform duration-200 hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a
+              href="#"
+              aria-label="LINE"
+              class="inline-block text-[1.15rem] text-gold transition-transform duration-200 hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+              ><i class="bi bi-line"></i
+            ></a>
+            <a
+              href="#"
+              aria-label="TikTok"
+              class="inline-block text-[1.15rem] text-gold transition-transform duration-200 hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+              ><i class="bi bi-tiktok"></i
+            ></a>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 gap-[34px] pb-[30px] pt-[34px] sm:grid-cols-2 sm:gap-10 md:grid-cols-[1.1fr_1fr_1.3fr]"
+        >
+          <div>
+            <h3 class="m-0 mb-5 font-script text-[1.25rem] font-bold text-gold">
+              ติดต่อเรา
+            </h3>
+            <ul class="m-0 list-none space-y-2.5 p-0">
+              <li class="break-words">โทร 02-123-4567</li>
+              <li class="break-words">HAHAHA@Parinya.co.th</li>
+              <li class="break-words">22 อำเภอแม่อาย</li>
+              <li class="break-words">อำเภอแม่อาย เชียงใหม่ </li>
+              <li class="break-words">เปิดเฉพาะวันจันทร์ 10:00 – 22:00 น.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="m-0 mb-5 font-script text-[1.25rem] font-bold text-gold">
+              เมนูลัด
+            </h3>
+            <ul class="m-0 list-none space-y-2.5 p-0">
+              <li>
+                <a
+                  href="#"
+                  class="transition-colors hover:text-gold focus-visible:text-gold"
+                  >หน้าแรก</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#menu"
+                  class="transition-colors hover:text-gold focus-visible:text-gold"
+                  >เมนูอาหาร</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="transition-colors hover:text-gold focus-visible:text-gold"
+                  >เกี่ยวกับเรา</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="transition-colors hover:text-gold focus-visible:text-gold"
+                  >จองโต๊ะ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="transition-colors hover:text-gold focus-visible:text-gold"
+                  >ร่วมงานกับเรา</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="m-0 mb-5 font-script text-[1.25rem] font-bold text-gold">
+              ข่าวจากร้าน
+            </h3>
+
+            <div class="flex items-start gap-3.5">
+              <img
+                class="h-[62px] w-[70px] flex-none object-cover"
+                src="image/r2.png"
+                loading="lazy"
+                alt="อาหารเหนือ"
+              />
+              <div>
+                <span class="block text-[0.75rem] text-gold">12 ก.ย. 2569</span>
+                <p class="mt-0.5 break-words text-[0.9rem] leading-[1.5]">
+                  เปิดตัวเมนูใหม่จากครัวแม่ติ๋ม: ข้าวซอยไก่กรอบและน้ำพริกหนุ่ม
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-[18px] flex items-start gap-3.5">
+              <img
+                class="h-[62px] w-[70px] flex-none object-cover"
+                src="image/r1.jpg"
+                loading="lazy"
+                alt="อาหารเหนือ"
+              />
+              <div>
+                <span class="block text-[0.75rem] text-gold">28 ส.ค. 2569</span>
+                <p class="mt-0.5 break-words text-[0.9rem] leading-[1.5]">
+                  ขยายเวลาเปิดร้านถึงสี่ทุ่มครึ่งทุกวันจันทร์ พร้อมเมนูพิเศษสำหรับมื้อค่ำ
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-white/[0.08] pt-7 text-center text-[0.82rem]"
+        >
+          &copy; 2026 Parinya · จัดทำเพื่อการศึกษาโดย Parinya SAU
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio ของ Parinya Chaekkathok — Freelance Developer"
+    />
+    <title>Parinya Chaekkathok — Portfolio</title>
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%23000c58'/></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Bebas Neue = หัวข้อตัวบีบ (มีแต่ตัวพิมพ์ใหญ่), Prompt = เนื้อหาและภาษาไทย -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Tailwind CSS (Play CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          /* จุดตัดหน้าจอตั้งใหม่ให้ตรงกับ CSS เดิมที่ใช้ max-width 600px / 900px
+             เขียนแบบ mobile-first แทน: ค่าเริ่มต้น = จอเล็ก, sm = เกิน 600, md = เกิน 900 */
+          screens: {
+            sm: "601px",
+            md: "901px",
+          },
+          extend: {
+            colors: {
+              ink: "#000c58" /* พื้นหลังหลัก */,
+              navy: "#07002f" /* แถบเมนูด้านบน + ตัวหนังสือบนปุ่มฟ้า */,
+              panel: "#060135" /* ช่องกรอกฟอร์ม */,
+              accent: "#7a99e9" /* ปุ่มสีฟ้า */,
+              muted: "rgba(255,255,255,0.62)",
+              line: "rgba(255,255,255,0.14)",
+            },
+            fontFamily: {
+              display: ['"Bebas Neue"', "sans-serif"],
+              body: ["Prompt", "sans-serif"],
+            },
+            maxWidth: {
+              /* เนื้อหากว้าง 1206px + padding ซ้ายขวา 24px = 1254px
+                 ต้องบวก padding เข้าไปด้วย ไม่งั้นเนื้อหาจะถูกดันเข้ามาอีก 24px */
+              container: "1254px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="bg-ink font-body font-light leading-[1.75] text-white antialiased"
+  >
+    <!-- ===================== Navigation ===================== -->
+    <header
+      class="flex flex-wrap items-center justify-center gap-6 bg-navy px-6 py-5 text-center sm:h-[89px] sm:justify-between sm:px-14 sm:py-0 sm:text-left"
+    >
+      <a href="#" class="font-display text-[1.15rem] uppercase tracking-[0.5px]"
+        >Parinya Chaekkathok</a
+      >
+      <nav class="flex gap-[26px] sm:gap-[42px]">
+        <a
+          href="#work"
+          class="relative inline-block py-1 text-[0.9rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-white focus-visible:-translate-y-0.5 focus-visible:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[2px] after:w-0 after:rounded-full after:bg-accent after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_10px_rgba(122,153,233,0.7)] focus-visible:after:w-full"
+          >Work</a
+        >
+        <a
+          href="#about"
+          class="relative inline-block py-1 text-[0.9rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-white focus-visible:-translate-y-0.5 focus-visible:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[2px] after:w-0 after:rounded-full after:bg-accent after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_10px_rgba(122,153,233,0.7)] focus-visible:after:w-full"
+          >About</a
+        >
+        <a
+          href="#connect"
+          class="relative inline-block py-1 text-[0.9rem] text-muted transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-white focus-visible:-translate-y-0.5 focus-visible:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[2px] after:w-0 after:rounded-full after:bg-accent after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:shadow-[0_0_10px_rgba(122,153,233,0.7)] focus-visible:after:w-full"
+          >Contact</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===================== Hero ===================== -->
+      <section class="py-14 md:py-[70px]" id="work">
+        <div
+          class="mx-auto grid w-full max-w-container grid-cols-1 items-start gap-7 px-6 md:grid-cols-[45fr_55fr] md:gap-12"
+        >
+          <div>
+            <h1
+              class="m-0 font-display text-[clamp(2.75rem,5vw,4.5rem)] font-normal uppercase leading-[1.05] tracking-[0.5px]"
+            >
+              Hi, I am<br />
+              Parinya Chaekkathok
+            </h1>
+
+            <p class="mt-[22px] max-w-[30em] text-[0.95rem] text-muted">
+              นักพัฒนาเว็บไซต์อิสระ ที่เชื่อว่างานดีไซน์ที่ดีต้องใช้งานได้จริง
+              ผมออกแบบและเขียนเว็บให้แบรนด์เล็ก ๆ ได้มีหน้าร้านออนไลน์ที่ดูดี
+            </p>
+
+            <div class="mt-[34px] flex flex-wrap items-center gap-[14px]">
+              <a
+                class="inline-flex cursor-pointer items-center gap-3 rounded-full border-none bg-accent px-[26px] py-[13px] font-body text-[0.8rem] font-medium uppercase tracking-[1px] text-navy transition hover:-translate-y-px hover:brightness-[1.12] focus-visible:-translate-y-px focus-visible:brightness-[1.12]"
+                href="#connect"
+              >
+                Contact me <i class="bi bi-arrow-right"></i>
+              </a>
+              <a
+                class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/[0.08] text-[1.05rem] transition-colors hover:bg-accent hover:text-navy focus-visible:bg-accent focus-visible:text-navy"
+                href="#"
+                aria-label="LinkedIn ของ Boonwarut"
+              >
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a
+                class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/[0.08] text-[1.05rem] transition-colors hover:bg-accent hover:text-navy focus-visible:bg-accent focus-visible:text-navy"
+                href="#"
+                aria-label="GitHub ของ Boonwarut"
+              >
+                <i class="bi bi-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- รูปต้นฉบับเป็นแนวนอน 3:2 ใช้ object-cover ครอปเป็นแนวตั้ง 4:5 โดยยึดกลางภาพ -->
+          <img
+            class="aspect-[4/5] w-full max-w-full rounded-[14px] object-cover md:max-w-[510px]"
+            src="image/C1.jpg"
+            alt="รูปโปรไฟล์ Boonwarut Kanyasai"
+          />
+        </div>
+      </section>
+
+      <!-- ===================== About ===================== -->
+      <section class="border-t border-line py-16 md:py-[100px]" id="about">
+        <div class="mx-auto w-full max-w-container px-6">
+          <div
+            class="grid grid-cols-1 items-start gap-7 md:grid-cols-[45fr_55fr] md:gap-12"
+          >
+            <h2
+              class="m-0 font-display text-[clamp(2rem,4.45vw,4rem)] font-normal uppercase leading-[1.05] tracking-[0.5px]"
+            >
+              About me
+            </h2>
+
+            <div>
+              <p class="m-0 text-[1.15rem] font-normal leading-[1.6] sm:text-[1.35rem]">
+                ผมเป็นนักพัฒนาเว็บไซต์ที่สนใจงานฝั่งหน้าบ้านเป็นพิเศษ
+                ชอบงานที่ได้ลงมือทั้งออกแบบและเขียนโค้ดด้วยตัวเอง
+              </p>
+
+              <p class="mt-[26px] text-[0.95rem] text-muted">
+                เริ่มจากการรับทำเว็บให้ร้านค้าเล็ก ๆ ในจังหวัด
+                ทำให้ได้เรียนรู้ว่าเว็บที่ดีไม่ได้วัดกันที่ความสวยอย่างเดียว
+                แต่ต้องโหลดไว ใช้บนมือถือได้ลื่น และเจ้าของร้านแก้เนื้อหาเองได้
+                ตอนนี้กำลังศึกษาเรื่อง Accessibility
+                และการทำเว็บให้รองรับผู้ใช้ทุกกลุ่มอย่างจริงจัง
+              </p>
+
+              <div class="mt-[34px] flex flex-wrap items-center gap-[14px]">
+                <a
+                  class="inline-flex cursor-pointer items-center gap-3 rounded-full border-none bg-accent px-[26px] py-[13px] font-body text-[0.8rem] font-medium uppercase tracking-[1px] text-navy transition hover:-translate-y-px hover:brightness-[1.12] focus-visible:-translate-y-px focus-visible:brightness-[1.12]"
+                  href="#"
+                >
+                  Download resume <i class="bi bi-arrow-right"></i>
+                </a>
+                <a
+                  class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/[0.08] text-[1.05rem] transition-colors hover:bg-accent hover:text-navy focus-visible:bg-accent focus-visible:text-navy"
+                  href="#"
+                  aria-label="LinkedIn ของ Boonwarut"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a
+                  class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/[0.08] text-[1.05rem] transition-colors hover:bg-accent hover:text-navy focus-visible:bg-accent focus-visible:text-navy"
+                  href="#"
+                  aria-label="GitHub ของ Boonwarut"
+                >
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- อยู่ต่ำกว่าจอแรก ใช้ lazy loading ให้หน้าแรกโหลดเร็วขึ้น -->
+          <img
+            class="mt-10 aspect-video w-full rounded-[14px] object-cover md:mt-16"
+            src="image/C2.jpg"
+            loading="lazy"
+            alt="ภาพขาวดำ คนยืนนิ่งท่ามกลางฝูงชนเบลอ ๆ ที่กำลังเดินข้ามถนนกลางเมือง"
+          />
+        </div>
+      </section>
+
+      <!-- ===================== Capabilities ===================== -->
+      <section class="border-t border-line py-16 md:py-[100px]">
+        <div
+          class="mx-auto grid w-full max-w-container grid-cols-1 items-start gap-7 px-6 md:grid-cols-[45fr_55fr] md:gap-12"
+        >
+          <h2
+            class="m-0 font-display text-[clamp(2rem,4.45vw,4rem)] font-normal uppercase leading-[1.05] tracking-[0.5px]"
+          >
+            My capabilities
+          </h2>
+
+          <div>
+            <p class="mt-0 text-[0.95rem] text-muted">
+              เครื่องมือที่ใช้ทำงานอยู่เป็นประจำ
+              ทั้งฝั่งหน้าบ้านและงานออกแบบก่อนลงมือเขียนโค้ด
+            </p>
+
+            <!-- padding กว้างพอให้แตกเป็น 4+4 สองแถวเหมือนแบบ -->
+            <div class="mt-[30px] flex flex-wrap gap-[14px]">
+              <span
+                class="rounded-full border border-line px-[38px] py-[11px] text-[0.82rem] uppercase tracking-[1px] transition-colors hover:border-accent hover:bg-accent/[0.12]"
+                >HTML</span
+              >
+              <span
+                class="rounded-full border border-line px-[38px] py-[11px] text-[0.82rem] uppercase tracking-[1px] transition-colors hover:border-accent hover:bg-accent/[0.12]"
+                >CSS</span
+              >
+              <span
+                class="rounded-full border border-line px-[38px] py-[11px] text-[0.82rem] uppercase tracking-[1px] transition-colors hover:border-accent hover:bg-accent/[0.12]"
+                >JavaScript</span
+              >
+              <span
+                class="rounded-full border border-line px-[38px] py-[11px] text-[0.82rem] uppercase tracking-[1px] transition-colors hover:border-accent hover:bg-accent/[0.12]"
+                >Figma</span
+              >
+              <span
+                class="rounded-full border border-line px-[38px] py-[11px] text-[0.82rem] uppercase tracking-[1px] transition-colors hover:border-accent hover:bg-accent/[0.12]"
+                >PHP</span
+              >
+              <span
+                class="rounded-full border border-line px-[38px] py-[11px] text-[0.82rem] uppercase tracking-[1px] transition-colors hover:border-accent hover:bg-accent/[0.12]"
+                >Git</span
+              >
+              <span
+                class="rounded-full border border-line px-[38px] py-[11px] text-[0.82rem] uppercase tracking-[1px] transition-colors hover:border-accent hover:bg-accent/[0.12]"
+                >React</span
+              >
+              <span
+                class="rounded-full border border-line px-[38px] py-[11px] text-[0.82rem] uppercase tracking-[1px] transition-colors hover:border-accent hover:bg-accent/[0.12]"
+                >Database</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Experience ===================== -->
+      <section class="border-t border-line py-16 md:py-[100px]">
+        <div
+          class="mx-auto grid w-full max-w-container grid-cols-1 items-start gap-7 px-6 md:grid-cols-[45fr_55fr] md:gap-12"
+        >
+          <h2
+            class="m-0 font-display text-[clamp(2rem,4.45vw,4rem)] font-normal uppercase leading-[1.05] tracking-[0.5px]"
+          >
+            My experience
+          </h2>
+
+          <div class="space-y-[42px]">
+            <article>
+              <div class="flex flex-wrap items-baseline justify-between gap-5">
+                <h3 class="m-0 text-[1.15rem] font-medium">
+                  Freelance Developer
+                </h3>
+                <span class="whitespace-nowrap text-[0.85rem] text-muted"
+                  >Mar 2023 – Present</span
+                >
+              </div>
+              <p class="mt-3 text-[0.95rem] text-muted">
+                รับออกแบบและพัฒนาเว็บไซต์ให้ร้านค้าและธุรกิจขนาดเล็ก
+                ดูแลตั้งแต่คุยความต้องการ ทำ Wireframe ใน Figma
+                ไปจนถึงเขียนโค้ดและนำขึ้นโฮสต์
+                รวมแล้วส่งมอบงานไปมากกว่าสิบโครงการ
+              </p>
+            </article>
+
+            <article>
+              <div class="flex flex-wrap items-baseline justify-between gap-5">
+                <h3 class="m-0 text-[1.15rem] font-medium">Front-End Intern</h3>
+                <span class="whitespace-nowrap text-[0.85rem] text-muted"
+                  >Sep 2022 – Mar 2023</span
+                >
+              </div>
+              <p class="mt-3 text-[0.95rem] text-muted">
+                ฝึกงานในทีมพัฒนาเว็บ ดูแลงานแก้ไขหน้าเว็บตาม Design System
+                ของทีม เขียน Component ที่นำกลับมาใช้ซ้ำได้
+                และช่วยตรวจความถูกต้องของหน้าเว็บบนหลายขนาดหน้าจอ
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Let's Connect ===================== -->
+      <section class="border-t border-line py-16 md:py-[100px]" id="connect">
+        <div
+          class="mx-auto grid w-full max-w-container grid-cols-1 items-start gap-7 px-6 md:grid-cols-[45fr_55fr] md:gap-12"
+        >
+          <div>
+            <h2
+              class="m-0 font-display text-[clamp(2rem,4.45vw,4rem)] font-normal uppercase leading-[1.05] tracking-[0.5px]"
+            >
+              Let&rsquo;s connect
+            </h2>
+
+            <p class="mt-5 text-[0.95rem] text-muted">
+              ทักมาคุยกันได้ที่
+              <a
+                href="mailto:Peach180470@gmail.com"
+                class="text-accent underline underline-offset-[3px]"
+                >Peach180470@gmail.com</a
+              ><br />
+              หรือดูรายละเอียดเพิ่มเติมใน
+              <a href="#" class="text-accent underline underline-offset-[3px]"
+                >เรซูเม่</a
+              >
+            </p>
+
+            <div class="mt-[30px] flex gap-5 text-[1.35rem] sm:gap-6">
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                class="text-white transition hover:-translate-y-0.5 hover:text-accent focus-visible:-translate-y-0.5 focus-visible:text-accent"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a
+                href="#"
+                aria-label="GitHub"
+                class="text-white transition hover:-translate-y-0.5 hover:text-accent focus-visible:-translate-y-0.5 focus-visible:text-accent"
+                ><i class="bi bi-github"></i
+              ></a>
+              <a
+                href="#"
+                aria-label="X (Twitter)"
+                class="text-white transition hover:-translate-y-0.5 hover:text-accent focus-visible:-translate-y-0.5 focus-visible:text-accent"
+                ><i class="bi bi-twitter-x"></i
+              ></a>
+              <a
+                href="#"
+                aria-label="Instagram"
+                class="text-white transition hover:-translate-y-0.5 hover:text-accent focus-visible:-translate-y-0.5 focus-visible:text-accent"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <form>
+            <div>
+              <label
+                for="name"
+                class="mb-[9px] block text-[0.85rem] text-muted"
+                >Name</label
+              >
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                class="w-full rounded-[3px] border border-transparent bg-panel px-4 py-[13px] font-body text-[0.95rem] font-light text-white transition-colors focus:border-accent focus:outline-none"
+              />
+            </div>
+
+            <div class="mt-[22px]">
+              <label
+                for="email"
+                class="mb-[9px] block text-[0.85rem] text-muted"
+                >Email</label
+              >
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                class="w-full rounded-[3px] border border-transparent bg-panel px-4 py-[13px] font-body text-[0.95rem] font-light text-white transition-colors focus:border-accent focus:outline-none"
+              />
+            </div>
+
+            <div class="mt-[22px]">
+              <label
+                for="subject"
+                class="mb-[9px] block text-[0.85rem] text-muted"
+                >Subject</label
+              >
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                class="w-full rounded-[3px] border border-transparent bg-panel px-4 py-[13px] font-body text-[0.95rem] font-light text-white transition-colors focus:border-accent focus:outline-none"
+              />
+            </div>
+
+            <div class="mt-[22px]">
+              <label
+                for="message"
+                class="mb-[9px] block text-[0.85rem] text-muted"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                class="min-h-[150px] w-full resize-y rounded-[3px] border border-transparent bg-panel px-4 py-[13px] font-body text-[0.95rem] font-light text-white transition-colors focus:border-accent focus:outline-none"
+              ></textarea>
+            </div>
+
+            <button
+              class="mt-[30px] inline-flex cursor-pointer items-center gap-3 rounded-full border-none bg-accent px-[26px] py-[13px] font-body text-[0.8rem] font-medium uppercase tracking-[1px] text-navy transition hover:-translate-y-px hover:brightness-[1.12] focus-visible:-translate-y-px focus-visible:brightness-[1.12]"
+              type="submit"
+            >
+              Submit <i class="bi bi-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== Footer ===================== -->
+    <footer
+      class="border-t border-line py-[34px] text-center text-[0.85rem] text-muted"
+    >
+      <div class="mx-auto w-full max-w-container px-6">
+        &copy; 2026 Created by Parinya SAU
+      </div>
+    </footer>
+  </body>
+</html>
